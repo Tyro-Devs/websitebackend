@@ -9,13 +9,13 @@ class AboutUsController extends Controller
 {
     public function index()
     {
-        $aboutUs = AboutUs::first();
-        return view('about_us.index', compact('aboutUs'));
+        $aboutUs = AboutUs::all();
+        return view('back.about_us.index', compact('aboutUs'));
     }
 
     public function create()
     {
-        return view('about_us.create');
+        return view('back.about_us.create');
     }
 
     public function store(Request $request)
@@ -25,25 +25,25 @@ class AboutUsController extends Controller
             'list1' => 'nullable|string',
             'list2' => 'nullable|string',
             'list3' => 'nullable|string',
-            'part2' => 'nullable|string',
+            'Part2' => 'nullable|string',
         ]);
 
         AboutUs::create($validatedData);
 
-        return redirect()->route('about_us.index')
+        return redirect()->route('about-us.index')
             ->with('success', 'About Us section created successfully.');
     }
 
     public function show($id)
     {
         $aboutUs = AboutUs::findOrFail($id);
-        return view('about_us.show', compact('aboutUs'));
+        return view('back.about_us.show', compact('aboutUs'));
     }
 
     public function edit($id)
     {
         $aboutUs = AboutUs::findOrFail($id);
-        return view('about_us.edit', compact('aboutUs'));
+        return view('back.about_us.edit', compact('aboutUs'));
     }
 
     public function update(Request $request, $id)
@@ -53,13 +53,13 @@ class AboutUsController extends Controller
             'list1' => 'nullable|string',
             'list2' => 'nullable|string',
             'list3' => 'nullable|string',
-            'part2' => 'nullable|string',
+            'Part2' => 'nullable|string',
         ]);
 
         $aboutUs = AboutUs::findOrFail($id);
         $aboutUs->update($validatedData);
 
-        return redirect()->route('about_us.index')
+        return redirect()->route('about-us.index')
             ->with('success', 'About Us section updated successfully.');
     }
 

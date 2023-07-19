@@ -12,28 +12,26 @@
 <div class="row g-4">
     <div class="col-12">
         <div class="bg-light rounded h-100 p-4">
-            <h6 class="mb-4">Top Section <a href="{{ route('top-sections.create') }}" class="btn btn-success rounded-pill m-2">Add</a></h6>
+            <h6 class="mb-4">About Us <a href="{{ route('about-us.create') }}" class="btn btn-success rounded-pill m-2">Add</a></h6>
 
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Top Heading</th>
-                            <th scope="col">top_link</th>
-                            <th scope="col">top_video_link</th>
+                            <th scope="col">Part 1</th>
+                            <th scope="col">Part 2</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($topSections as $data )
+                        @foreach ($aboutUs as $data )
                         <tr>
                             <th scope="row">{{ $data->id }}</th>
-                            <td>{{ $data->top_heading }}</td>
-                            <td> {{ $data->top_link }}</td>
-                            <td>{{ $data->top_video_link }}</td>
+                            <td>{{ $data->part1 }}</td>
+                            <td> {{ $data->Part2 }}</td>
                             <td><a class="btn btn-danger rounded-pill m-2">Delete</a>
-                                <a href="{{ route('top-sections.edit', $data->id) }}" class="btn btn-info rounded-pill m-2">Edit</a>
+                                <a href="{{ route('about-us.edit', $data->id) }}" class="btn btn-info rounded-pill m-2">Edit</a>
                             </td>
 
                         </tr>

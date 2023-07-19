@@ -12,28 +12,28 @@
 <div class="row g-4">
     <div class="col-12">
         <div class="bg-light rounded h-100 p-4">
-            <h6 class="mb-4">Top Section <a href="{{ route('top-sections.create') }}" class="btn btn-success rounded-pill m-2">Add</a></h6>
+            <h6 class="mb-4">Services Details <a href="{{ route('service-detali.create') }}" class="btn btn-success rounded-pill m-2">Add</a></h6>
 
             <div class="table-responsive">
                 <table class="table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
-                            <th scope="col">Top Heading</th>
-                            <th scope="col">top_link</th>
-                            <th scope="col">top_video_link</th>
+                            <th scope="col">Title</th>
+                            <th scope="col">Short Description</th>
+                            <th scope="col">Logo Name</th>
                             <th scope="col">Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($topSections as $data )
+                        @foreach ($serviceDetails as $data )
                         <tr>
                             <th scope="row">{{ $data->id }}</th>
-                            <td>{{ $data->top_heading }}</td>
-                            <td> {{ $data->top_link }}</td>
-                            <td>{{ $data->top_video_link }}</td>
+                            <td>{{ $data->title }}</td>
+                            <td> {{ $data->short_desc }}</td>
+                            <td> {{ $data->logo }}</td>
                             <td><a class="btn btn-danger rounded-pill m-2">Delete</a>
-                                <a href="{{ route('top-sections.edit', $data->id) }}" class="btn btn-info rounded-pill m-2">Edit</a>
+                                <a href="{{ route('service-detali.edit', $data->id) }}" class="btn btn-info rounded-pill m-2">Edit</a>
                             </td>
 
                         </tr>

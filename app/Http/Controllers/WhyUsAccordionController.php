@@ -10,12 +10,12 @@ class WhyUsAccordionController extends Controller
     public function index()
     {
         $whyUsAccordions = WhyUsAccordion::all();
-        return view('why_us_accordions.index', compact('whyUsAccordions'));
+        return view('back.why_us_accordion.index', compact('whyUsAccordions'));
     }
 
     public function create()
     {
-        return view('why_us_accordions.create');
+        return view('back.why_us_accordion.create');
     }
 
     public function store(Request $request)
@@ -27,20 +27,20 @@ class WhyUsAccordionController extends Controller
 
         WhyUsAccordion::create($validatedData);
 
-        return redirect()->route('why_us_accordions.index')
+        return redirect()->route('why-us-accordions.index')
             ->with('success', 'Why Us accordion created successfully.');
     }
 
     public function show($id)
     {
         $whyUsAccordion = WhyUsAccordion::findOrFail($id);
-        return view('why_us_accordions.show', compact('whyUsAccordion'));
+        return view('back.why_us_accordion.show', compact('whyUsAccordion'));
     }
 
     public function edit($id)
     {
         $whyUsAccordion = WhyUsAccordion::findOrFail($id);
-        return view('why_us_accordions.edit', compact('whyUsAccordion'));
+        return view('back.why_us_accordion.edit', compact('whyUsAccordion'));
     }
 
     public function update(Request $request, $id)
@@ -53,7 +53,7 @@ class WhyUsAccordionController extends Controller
         $whyUsAccordion = WhyUsAccordion::findOrFail($id);
         $whyUsAccordion->update($validatedData);
 
-        return redirect()->route('why_us_accordions.index')
+        return redirect()->route('why-us-accordions.index')
             ->with('success', 'Why Us accordion updated successfully.');
     }
 
@@ -62,7 +62,7 @@ class WhyUsAccordionController extends Controller
         $whyUsAccordion = WhyUsAccordion::findOrFail($id);
         $whyUsAccordion->delete();
 
-        return redirect()->route('why_us_accordions.index')
+        return redirect()->route('why-us-accordions.index')
             ->with('success', 'Why Us accordion deleted successfully.');
     }
 }

@@ -9,13 +9,13 @@ class WhyUsController extends Controller
 {
     public function index()
     {
-        $whyUs = WhyUs::first();
-        return view('why_us.index', compact('whyUs'));
+        $whyUs = WhyUs::all();
+        return view('back.why_us.index', compact('whyUs'));
     }
 
     public function create()
     {
-        return view('why_us.create');
+        return view('back.why_us.create');
     }
 
     public function store(Request $request)
@@ -27,20 +27,20 @@ class WhyUsController extends Controller
 
         WhyUs::create($validatedData);
 
-        return redirect()->route('why_us.index')
+        return redirect()->route('why-us.index')
             ->with('success', 'Why Us section created successfully.');
     }
 
     public function show($id)
     {
         $whyUs = WhyUs::findOrFail($id);
-        return view('why_us.show', compact('whyUs'));
+        return view('back.why_us.show', compact('whyUs'));
     }
 
     public function edit($id)
     {
         $whyUs = WhyUs::findOrFail($id);
-        return view('why_us.edit', compact('whyUs'));
+        return view('back.why_us.edit', compact('whyUs'));
     }
 
     public function update(Request $request, $id)
@@ -53,7 +53,7 @@ class WhyUsController extends Controller
         $whyUs = WhyUs::findOrFail($id);
         $whyUs->update($validatedData);
 
-        return redirect()->route('why_us.index')
+        return redirect()->route('why-us.index')
             ->with('success', 'Why Us section updated successfully.');
     }
 
@@ -62,7 +62,7 @@ class WhyUsController extends Controller
         $whyUs = WhyUs::findOrFail($id);
         $whyUs->delete();
 
-        return redirect()->route('why_us.index')
+        return redirect()->route('why-us.index')
             ->with('success', 'Why Us section deleted successfully.');
     }
 }
