@@ -15,14 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('about')->nullable();
             $table->string('fb_link')->nullable();
-            $table->string('twitter_link')->nullable();
             $table->string('insta_link')->nullable();
-            $table->string('github_link')->nullable();
             $table->string('skype_link')->nullable();
             $table->string('linkedin_link')->nullable();
-            $table->string('thread_link')->nullable();
             $table->string('codecanyon_link')->nullable();
-            $table->string('ghurifiri_link')->nullable();
             $table->timestamps();
         });
     }

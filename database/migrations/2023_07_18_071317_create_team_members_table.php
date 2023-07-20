@@ -17,12 +17,10 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('designation')->nullable();
             $table->string('member_desc')->nullable();
-            $table->string('twitter_link')->nullable();
             $table->string('fb_link')->nullable();
             $table->string('insta_link')->nullable();
             $table->string('linkedin_link')->nullable();
-            $table->string('skype_link')->nullable();
-            $table->string('github_link')->nullable();
+            $table->string('portfolio_link')->nullable();
             $table->boolean('is_active')->default(0)->nullable();
             $table->timestamps();
         });

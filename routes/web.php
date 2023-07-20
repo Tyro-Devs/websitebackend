@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AboutUsController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\FAQAccordionController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\MessageController;
@@ -45,8 +46,9 @@ Route::resource('service-detali', ServiceDetailController::class);
 Route::resource('type', TypeController::class);
 Route::resource('portfolio', PortfolioController::class);
 Route::resource('contact', ContactController::class);
-Route::resource('foooter', FooterController::class);
+Route::resource('footer', FooterController::class);
 Route::resource('team-member', TeamMemberController::class);
 Route::resource('faq', FAQController::class);
+Route::resource('faq-acc', FAQAccordionController::class);
 Route::post('message', [MessageController::class,'store']);
 

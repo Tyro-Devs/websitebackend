@@ -10,12 +10,12 @@ class FAQController extends Controller
     public function index()
     {
         $faqs = FAQ::all();
-        return view('faqs.index', compact('faqs'));
+        return view('back.faqs.index', compact('faqs'));
     }
 
     public function create()
     {
-        return view('faqs.create');
+        return view('back.faqs.create');
     }
 
     public function store(Request $request)
@@ -27,20 +27,20 @@ class FAQController extends Controller
 
         FAQ::create($validatedData);
 
-        return redirect()->route('faqs.index')
+        return redirect()->route('faq.index')
             ->with('success', 'FAQ created successfully.');
     }
 
     public function show($id)
     {
         $faq = FAQ::findOrFail($id);
-        return view('faqs.show', compact('faq'));
+        return view('back.faqs.show', compact('faq'));
     }
 
     public function edit($id)
     {
         $faq = FAQ::findOrFail($id);
-        return view('faqs.edit', compact('faq'));
+        return view('back.faqs.edit', compact('faq'));
     }
 
     public function update(Request $request, $id)
@@ -53,7 +53,7 @@ class FAQController extends Controller
         $faq = FAQ::findOrFail($id);
         $faq->update($validatedData);
 
-        return redirect()->route('faqs.index')
+        return redirect()->route('faq.index')
             ->with('success', 'FAQ updated successfully.');
     }
 
@@ -62,7 +62,7 @@ class FAQController extends Controller
         $faq = FAQ::findOrFail($id);
         $faq->delete();
 
-        return redirect()->route('faqs.index')
+        return redirect()->route('faq.index')
             ->with('success', 'FAQ deleted successfully.');
     }
 }

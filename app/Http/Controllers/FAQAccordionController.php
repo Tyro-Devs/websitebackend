@@ -10,12 +10,12 @@ class FAQAccordionController extends Controller
     public function index()
     {
         $faqAccordions = FAQAccordion::all();
-        return view('faq_accordions.index', compact('faqAccordions'));
+        return view('back.faq_accordions.index', compact('faqAccordions'));
     }
 
     public function create()
     {
-        return view('faq_accordions.create');
+        return view('back.faq_accordions.create');
     }
 
     public function store(Request $request)
@@ -27,20 +27,20 @@ class FAQAccordionController extends Controller
 
         FAQAccordion::create($validatedData);
 
-        return redirect()->route('faq_accordions.index')
+        return redirect()->route('faq-acc.index')
             ->with('success', 'FAQ Accordion created successfully.');
     }
 
     public function show($id)
     {
         $faqAccordion = FAQAccordion::findOrFail($id);
-        return view('faq_accordions.show', compact('faqAccordion'));
+        return view('back.faq_accordions.show', compact('faqAccordion'));
     }
 
     public function edit($id)
     {
         $faqAccordion = FAQAccordion::findOrFail($id);
-        return view('faq_accordions.edit', compact('faqAccordion'));
+        return view('back.faq_accordions.edit', compact('faqAccordion'));
     }
 
     public function update(Request $request, $id)
@@ -53,7 +53,7 @@ class FAQAccordionController extends Controller
         $faqAccordion = FAQAccordion::findOrFail($id);
         $faqAccordion->update($validatedData);
 
-        return redirect()->route('faq_accordions.index')
+        return redirect()->route('faq-acc.index')
             ->with('success', 'FAQ Accordion updated successfully.');
     }
 
@@ -62,7 +62,7 @@ class FAQAccordionController extends Controller
         $faqAccordion = FAQAccordion::findOrFail($id);
         $faqAccordion->delete();
 
-        return redirect()->route('faq_accordions.index')
+        return redirect()->route('faq-acc.index')
             ->with('success', 'FAQ Accordion deleted successfully.');
     }
 }
