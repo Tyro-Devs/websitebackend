@@ -10,12 +10,12 @@ class ContactController extends Controller
     public function index()
     {
         $contacts = Contact::all();
-        return view('contacts.index', compact('contacts'));
+        return view('back.contacts.index', compact('contacts'));
     }
 
     public function create()
     {
-        return view('contacts.create');
+        return view('back.contacts.create');
     }
 
     public function store(Request $request)
@@ -31,20 +31,20 @@ class ContactController extends Controller
 
         Contact::create($validatedData);
 
-        return redirect()->route('contacts.index')
+        return redirect()->route('contact.index')
             ->with('success', 'Contact created successfully.');
     }
 
     public function show($id)
     {
         $contact = Contact::findOrFail($id);
-        return view('contacts.show', compact('contact'));
+        return view('back.contacts.show', compact('contact'));
     }
 
     public function edit($id)
     {
         $contact = Contact::findOrFail($id);
-        return view('contacts.edit', compact('contact'));
+        return view('back.contacts.edit', compact('contact'));
     }
 
     public function update(Request $request, $id)
@@ -61,7 +61,7 @@ class ContactController extends Controller
         $contact = Contact::findOrFail($id);
         $contact->update($validatedData);
 
-        return redirect()->route('contacts.index')
+        return redirect()->route('contact.index')
             ->with('success', 'Contact updated successfully.');
     }
 
@@ -70,7 +70,7 @@ class ContactController extends Controller
         $contact = Contact::findOrFail($id);
         $contact->delete();
 
-        return redirect()->route('contacts.index')
+        return redirect()->route('contact.index')
             ->with('success', 'Contact deleted successfully.');
     }
 }

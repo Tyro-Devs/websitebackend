@@ -2,10 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 
-class Portfolio extends Model
+class Portfolio extends BaseModel
 {
-    use HasFactory;
+    public function type()
+    {
+        return $this->belongsTo(Type::class,'type_id');
+    }
 }

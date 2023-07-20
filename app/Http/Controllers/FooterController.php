@@ -10,12 +10,12 @@ class FooterController extends Controller
     public function index()
     {
         $footers = Footer::all();
-        return view('footers.index', compact('footers'));
+        return view('back.footers.index', compact('footers'));
     }
 
     public function create()
     {
-        return view('footers.create');
+        return view('back.footers.create');
     }
 
     public function store(Request $request)
@@ -35,20 +35,20 @@ class FooterController extends Controller
 
         Footer::create($validatedData);
 
-        return redirect()->route('footers.index')
+        return redirect()->route('footer.index')
             ->with('success', 'Footer created successfully.');
     }
 
     public function show($id)
     {
         $footer = Footer::findOrFail($id);
-        return view('footers.show', compact('footer'));
+        return view('back.footers.show', compact('footer'));
     }
 
     public function edit($id)
     {
         $footer = Footer::findOrFail($id);
-        return view('footers.edit', compact('footer'));
+        return view('back.footers.edit', compact('footer'));
     }
 
     public function update(Request $request, $id)
@@ -69,7 +69,7 @@ class FooterController extends Controller
         $footer = Footer::findOrFail($id);
         $footer->update($validatedData);
 
-        return redirect()->route('footers.index')
+        return redirect()->route('footer.index')
             ->with('success', 'Footer updated successfully.');
     }
 
@@ -78,7 +78,7 @@ class FooterController extends Controller
         $footer = Footer::findOrFail($id);
         $footer->delete();
 
-        return redirect()->route('footers.index')
+        return redirect()->route('footer.index')
             ->with('success', 'Footer deleted successfully.');
     }
 }

@@ -4,18 +4,19 @@ namespace App\Http\Controllers;
 
 use App\Models\TeamMember;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TeamMemberController extends Controller
 {
     public function index()
     {
         $teamMembers = TeamMember::all();
-        return view('team_members.index', compact('teamMembers'));
+        return view('back.team_members.index', compact('teamMembers'));
     }
 
     public function create()
     {
-        return view('team_members.create');
+        return view('back.team_members.create');
     }
 
     public function store(Request $request)
@@ -35,26 +36,29 @@ class TeamMemberController extends Controller
         ]);
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/images');
-            $validatedData['image'] = $imagePath;
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $validatedData['image'] = 'images/' . $imageName;
         }
+
 
         TeamMember::create($validatedData);
 
-        return redirect()->route('team_members.index')
+        return redirect()->route('team-member.index')
             ->with('success', 'Team member created successfully.');
     }
 
     public function show($id)
     {
         $teamMember = TeamMember::findOrFail($id);
-        return view('team_members.show', compact('teamMember'));
+        return view('back.team_members.show', compact('teamMember'));
     }
 
     public function edit($id)
     {
         $teamMember = TeamMember::findOrFail($id);
-        return view('team_members.edit', compact('teamMember'));
+        return view('back.team_members.edit', compact('teamMember'));
     }
 
     public function update(Request $request, $id)
@@ -76,13 +80,20 @@ class TeamMemberController extends Controller
         $teamMember = TeamMember::findOrFail($id);
 
         if ($request->hasFile('image')) {
-            $imagePath = $request->file('image')->store('public/images');
-            $validatedData['image'] = $imagePath;
+            // Delete previous image if it exists
+            if ($teamMember->image) {
+                Storage::delete('public/' . $teamMember->image);
+            }
+
+            $image = $request->file('image');
+            $imageName = time() . '_' . $image->getClientOriginalName();
+            $image->move(public_path('images'), $imageName);
+            $validatedData['image'] = 'images/' . $imageName;
         }
 
         $teamMember->update($validatedData);
 
-        return redirect()->route('team_members.index')
+        return redirect()->route('team-member.index')
             ->with('success', 'Team member updated successfully.');
     }
 
@@ -91,7 +102,7 @@ class TeamMemberController extends Controller
         $teamMember = TeamMember::findOrFail($id);
         $teamMember->delete();
 
-        return redirect()->route('team_members.index')
+        return redirect()->route('team-member.index')
             ->with('success', 'Team member deleted successfully.');
     }
 }

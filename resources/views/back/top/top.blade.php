@@ -12,7 +12,7 @@
 <div class="row g-4">
     <div class="col-12">
         <div class="bg-light rounded h-100 p-4">
-            <h6 class="mb-4">Responsive Table <a href="{{ route('top-sections.create') }}" class="btn btn-success rounded-pill m-2">Add</a></h6>
+            <h6 class="mb-4">Top Section <a href="{{ route('top-sections.create') }}" class="btn btn-success rounded-pill m-2">Add</a></h6>
 
             <div class="table-responsive">
                 <table class="table">
