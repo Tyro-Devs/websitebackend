@@ -5,11 +5,11 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h1>{{ $topSection->top_heading }}</h1>
-          <h2>{{ $topSection->top_about }}</h2>
+          <h1>{{ $topSection->top_heading ?? '' }}</h1>
+          <h2>{{ $topSection->top_about ?? '' }}</h2>
           <div class="d-flex justify-content-center justify-content-lg-start">
             <a href="#contact" class="btn-get-started scrollto">Get Started</a>
-            <a href="{{ $topSection->top_video_link }}" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+            <a href="{{ $topSection->top_video_link ?? '' }}" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
         <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
@@ -49,17 +49,17 @@
         <div class="row content">
           <div class="col-lg-6">
             <p>
-              {{ $about->part1 }}
+              {{ $about->part1 ?? ''}}
             </p>
             <ul>
-              <li><i class="ri-check-double-line"></i> {{ $about->list1 }}</li>
-              <li><i class="ri-check-double-line"></i> {{ $about->list2 }}</li>
-              <li><i class="ri-check-double-line"></i> {{ $about->list3 }}</li>
+              <li><i class="ri-check-double-line"></i> {{ $about->list1 ?? ''}}</li>
+              <li><i class="ri-check-double-line"></i> {{ $about->list2 ?? ''}}</li>
+              <li><i class="ri-check-double-line"></i> {{ $about->list3 ?? ''}}</li>
             </ul>
           </div>
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
-             {{ $about->Part2 }}
+             {{ $about->Part2 ?? ''}}
             </p>
             <a href="#" class="btn-learn-more">Learn More</a>
           </div>
@@ -77,9 +77,9 @@
           <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
 
             <div class="content">
-              <h3>{{ $why_us->title }}</h3>
+              <h3>{{ $why_us->title ?? ''}}</h3>
               <p>
-                {{ $why_us->why_us_about }}
+                {{ $why_us->why_us_about ?? ''}}
               </p>
             </div>
 
@@ -167,7 +167,7 @@
 
         <div class="section-title">
           <h2>Services</h2>
-          <p>{{ $service->desc }}</p>
+          <p>{{ $service->desc ?? ''}}</p>
         </div>
 
         <div class="row">
@@ -192,7 +192,7 @@
         <div class="row">
           <div class="col-lg-9 text-center text-lg-start">
             <h3>Call To Action</h3>
-            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> For More Details Feel Free to Contact With Us</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
             <a class="cta-btn align-middle" href="#contact">Call To Action</a>
@@ -208,7 +208,7 @@
 
         <div class="section-title">
           <h2>Portfolio</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p>{{ $top_section->port_desc ?? ''}}</p>
         </div>
 
         <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
@@ -248,7 +248,7 @@
 
         <div class="section-title">
           <h2>Team</h2>
-          <p>{{ $topSection->team_desc }}</p>
+          <p>{{ $topSection->team_desc ?? ''}}</p>
         </div>
 
         <div class="row">
@@ -284,7 +284,7 @@
 
         <div class="section-title">
           <h2>Frequently Asked Questions</h2>
-          <p>{{ $faq->desc }}</p>
+          <p>{{ $faq->desc ?? ''}}</p>
         </div>
 
         <div class="faq-list">
@@ -311,7 +311,7 @@
 
         <div class="section-title">
           <h2>Contact</h2>
-          <p>{{ $contact->desc }}</p>
+          <p>{{ $contact->desc ?? ''}}</p>
         </div>
 
         <div class="row">
@@ -321,22 +321,22 @@
               <div class="address">
                 <i class="bi bi-geo-alt"></i>
                 <h4>Location:</h4>
-                <p>{{ $contact->address }}</p>
+                <p>{{ $contact->address ?? ''}}</p>
               </div>
 
               <div class="email">
                 <i class="bi bi-envelope"></i>
                 <h4>Email:</h4>
-                <p>{{ $contact->email }}</p>
+                <p>{{ $contact->email ?? ''}}</p>
               </div>
 
               <div class="phone">
                 <i class="bi bi-phone"></i>
                 <h4>Call:</h4>
-                <p>{{ $contact->phone }}</p>
+                <p>{{ $contact->phone ?? ''}}</p>
               </div>
 
-              <iframe src="{{ $contact->map }}" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
+              <iframe src="{{ $contact->map ?? ''}}" frameborder="0" style="border:0; width: 100%; height: 290px;" allowfullscreen></iframe>
             </div>
 
           </div>

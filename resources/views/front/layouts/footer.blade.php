@@ -21,9 +21,9 @@
           <div class="col-lg-3 col-md-6 footer-contact">
             <h3>Tyro Devs</h3>
             <p>
-              {{ $contacts->address }}<br>
-              <strong>Phone:</strong> {{ $contacts->phone }}<br>
-              <strong>Email:</strong> {{ $contacts->email }}<br>
+              {{ $contacts->address ?? ''}}<br>
+              <strong>Phone:</strong> {{ $contacts->phone ?? ''}}<br>
+              <strong>Email:</strong> {{ $contacts->email ?? ''}}<br>
             </p>
           </div>
 
@@ -51,10 +51,10 @@
             <h4>Our Social Networks</h4>
             <p>Please Visit To Our Socal Network</p>
             <div class="social-links mt-3">
-              <a href="{{ $footer->fb_link }}" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="{{ $footer->insta_link }}" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="{{ $footer->skype_link }}" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="{{ $footer->linkedin_link }}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="{{ $footer->fb_link ?? ''}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="{{ $footer->insta_link ?? ''}}" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="{{ $footer->skype_link ?? ''}}" class="google-plus"><i class="bx bxl-skype"></i></a>
+              <a href="{{ $footer->linkedin_link ?? ''}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
 
