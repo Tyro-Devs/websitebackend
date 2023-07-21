@@ -35,7 +35,11 @@
                             id="floatingTextarea" style="height: 150px;" name="team_desc"></textarea>
                         <label for="floatingTextarea">Team Description</label>
                     </div>
-
+                    <div class="form-floating">
+                        <textarea class="form-control" placeholder="Leave a comment here"
+                            id="floatingTextarea" style="height: 150px;" name="port_desc"></textarea>
+                        <label for="floatingTextarea">Portfolio Description</label>
+                    </div>
 
                     <button  type="submit" class="btn btn-primary mt-2">Submit</button>
                 </form>

@@ -35,7 +35,7 @@ class ToolController extends Controller
 
         Tool::create($validatedData);
 
-        return redirect()->route('back.tool.index')
+        return redirect()->route('tool.index')
             ->with('success', 'Tool created successfully.');
     }
 
@@ -73,7 +73,7 @@ class ToolController extends Controller
         }
         $tool->update($validatedData);
 
-        return redirect()->route('tools.index')
+        return redirect()->route('tool.index')
             ->with('success', 'Tool updated successfully.');
     }
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('top_link')->nullable();
             $table->string('top_video_link')->nullable();
             $table->string('team_desc')->nullable();
+            $table->string('port_desc')->nullable();
             $table->timestamps();
         });
     }

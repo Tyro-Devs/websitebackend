@@ -12,7 +12,7 @@
 <div class="row g-4">
     <div class="col-12">
         <div class="bg-light rounded h-100 p-4">
-            <h6 class="mb-4">Tool <a href="{{ route('about-us.create') }}" class="btn btn-success rounded-pill m-2">Add</a></h6>
+            <h6 class="mb-4">Tool <a href="{{ route('tool.create') }}" class="btn btn-success rounded-pill m-2">Add</a></h6>
 
             <div class="table-responsive">
                 <table class="table">
