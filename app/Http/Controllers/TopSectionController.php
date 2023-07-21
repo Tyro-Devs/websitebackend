@@ -25,6 +25,7 @@ class TopSectionController extends Controller
             'top_link' => 'nullable|string|max:255',
             'top_video_link' => 'nullable|string|max:255',
             'team_desc' => 'nullable|string',
+            'port_desc' => 'nullable|string'
         ]);
 
         TopSection::create($validatedData);
@@ -53,6 +54,7 @@ class TopSectionController extends Controller
             'top_link' => 'nullable|string|max:255',
             'top_video_link' => 'nullable|string|max:255',
             'team_desc' => 'nullable|string',
+            'port_desc' => 'nullable|string'
         ]);
 
         $topSection = TopSection::findOrFail($id);
